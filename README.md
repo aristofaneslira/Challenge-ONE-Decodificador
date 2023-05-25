@@ -41,5 +41,3 @@ Por exemplo:
 ## Referências:
 
 - 🔗 ALURA: https://www.alura.com.br/
-- 🔗 MDN: https://developer.mozilla.org/pt-BR/
-- 🔗 W3SCOOLS: https://www.w3schools.com/
