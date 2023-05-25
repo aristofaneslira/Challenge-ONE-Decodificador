@@ -1,44 +1,87 @@
-const textArea = document.querySelector(".text-area");
-const mensagem = document.querySelector(".mensagem");
+document.getElementById('modo-texto-codificado').style.display = 'none';
 
-function btnEncriptar(){
-    const textoEncriptado = encriptar(textArea.value);
-    mensagem.value = textoEncriptado;
-    textArea.value = "";
+  
+var textarea = document.querySelector('textarea');
+let buttonCripto = document.querySelector('#criptografar');
+let buttonDescri= document.querySelector('#descriptografar');
+let finalText = document.querySelector('#texto_final');
+let buttonCopiar = document.querySelector('#copiar');
+
+function testeVazio (text) {
+    return text.replace(/\s/g,'').length;
 }
 
-function encriptar(stringEncriptada) {
-    let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
-    stringEncriptada = stringEncriptada.toLowerCase();
+function criptografar () {
 
-    for(let i = 0; i < matrizCodigo.length; i++) {
-        if(stringEncriptada.includes(matrizCodigo[i][0])) {
-            stringEncriptada = stringEncriptada.replaceAll(matrizCodigo[i][0], matrizCodigo[i][1]);
+    var newText = "";
+    var subText = [];
+
+    let tamanho = testeVazio(textarea.value);
+
+    if (tamanho != 0) {
+
+        let text = textarea.value.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        text = text.toLowerCase();
+
+        for (var i = 0; i < text.length; i++) {
+            subText[i] = text[i];
         }
-    }
-    return stringEncriptada;
-}
 
-function btnDesencriptar(){
-    const textoDesencriptado = desencriptar(textArea.value);
-    mensagem.value = textoDesencriptado;
-    textArea.value = "";
-}
-
-function desencriptar(stringDesencriptada) {
-    let matrizCodigo = [["e", "enter"], ["i", "imes"], ["a", "ai"], ["o", "ober"], ["u", "ufat"]];
-    stringEncriptada = stringDesencriptada.toLowerCase();
-
-    for(let i = 0; i < matrizCodigo.length; i++) {
-        if(stringDesencriptada.includes(matrizCodigo[i][1])) {
-            stringDesencriptada = stringDesencriptada.replaceAll(matrizCodigo[i][1], matrizCodigo[i][0]);
+        for(var i = 0; i < subText.length; i++) {
+            if (subText[i] == "e") {
+                subText [i] = "enter";
+            } else if (subText[i] == "i") {
+                subText[i] = "imes";
+            } else if (subText[i] == "a") {
+                subText[i] = "ai";
+            } else if (subText[i] == "o") {
+                subText[i] = "ober";
+            } else if (subText[i] == "u") {
+                subText[i] = "ufat";
+            }
         }
+
+        for (var i = 0; i < subText.length; i++) {
+            newText = newText + subText[i];
+        }
+
+        document.getElementById('modo-texto-codificado').style.display = "inline-block";
+        document.getElementById('modo-sem-texto').style.display = 'none';
+
+        finalText.textContent = newText;  
+        textarea.value = "";    
+        
     }
-    return stringDesencriptada;
+
 }
 
-function btnCopiar() {
-    var texto = mensagem.value;
-    navigator.clipboard.writeText(texto);
-    mensagem.value = "";
+function descriptografar () {
+
+    let tamanho = testeVazio(textarea.value);
+
+    if (tamanho != 0) {
+
+        let newText = textarea.value.normalize('NFD').replace(/[\u0300-\u036f]/g, "");
+        newText = newText.toLowerCase();
+        newText = newText.replace(/ai/gi, "a");
+        newText = newText.replace(/enter/gi, "e");
+        newText = newText.replace(/ober/gi, "o");
+        newText = newText.replace(/imes/gi, "i");
+        newText = newText.replace(/ufat/gi, "u");
+        finalText.textContent = newText;
+        textarea.value = "";
+
+        document.getElementById('modo-texto-codificado').style.display = "inline-block";
+        document.getElementById('modo-sem-texto').style.display = 'none';
+
+    }
 }
+
+function copiarTexto() {
+    const textcopy = finalText.innerHTML;  
+    navigator.clipboard.writeText(textcopy);
+}
+
+buttonCripto.onclick = criptografar;
+buttonDescri.onclick = descriptografar;
+buttonCopiar.onclick = copiarTexto;

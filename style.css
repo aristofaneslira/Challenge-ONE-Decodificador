@@ -1,101 +1,420 @@
-*{
+body {
     background: #E5E5E5;
     font-family: 'Inter', sans-serif;
-    font-weight: 400;
-    font-size: 32px;
-    line-height: 150%;
 }
 
-.logoAlura {
-    margin-left: 10px;
-    padding-top: 10px;
-    width: 2%;
+header {
+    padding: 15px 0;
+    box-shadow: 0 10px 10px 0 #E5E5E5;
+}
 
+.box {
+    position: relative;
+    align-items: center;
+    height: 100%;
+    width: 1050px;
+    margin: 0 auto;
+}
+
+#logoAlura {
+    width: 31.09px;
+    height: 48px;
 }
 
 main {
-    display: flex;
-    margin-bottom: 50px;
-    margin-left: 80px;
+    position: relative;
+    width: 1050px;
+    height: 620px;
+    margin: 0 auto;
 }
 
-.text-area {
-    border: none;
+.entrada_de_texto {
+    display: inline-block;
+    position: absolute;
+    width: 65%;
+    margin: 5% 5% 0 0;
+    
+}
+
+.recebe-texto{
+    display: block;
+}
+
+textarea {
+    font-size: 32px;
     color: #0A3871;
-    margin-top: 90px;
     text-transform: lowercase;
+    border-width: 0;
+    border-image:none;
+    border-style: none;
+    padding: 60px 0 20px 0;
+    margin: 0 0 20px 0;
+    resize: none;
+    outline: none;
+    background: none;
+    font-family: 'Inter', sans-serif;
 }
 
-::placeholder {color: #0A3871;}
-    .text-area:focus {
-        outline: none;
+textarea::placeholder {
+    color: #0A3871;
+    text-transform: none;
+}
+
+#exclamacao {
+    width: 14px;
+    height: 14px;
+}
+
+.aviso-restricao {
+    display: block;
+    margin-bottom: 20px;
+    color: #495057;
+}
+
+#texto-aviso {
+    display: inline;
+}
+
+#caixa-botoes-CD {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 328px;
+    height: 87px;
+    box-sizing: border-box;
+}
+
+.botoes button {
+
+    font-size: 18px;
+    display: inline;
+    width: 308px;
+    height: 67px;
+    border-radius: 26px;
+    border: 1px solid #0A3871;
+    color: #FFFFFF;
+    background:#0A3871;
+    box-sizing: content-box;
+    padding: 0px;
+    transition: transform 200ms linear, background 1s;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px 0 #b7babd;
+    
+}
+
+#descriptografar {
+    background: #D8DFE8;
+    color:  #0A3871;
+}
+
+.botoes button:hover, #copiar:hover{
+    transform: scale(1.05);
+}
+
+#criptografar:hover {
+    background: #0A3871;
+}
+
+.saida-de-texto {
+    float:right;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    top: 0;
+    right: 0;
+    text-align: center;
+    width: 33%;
+    height: 560px;
+    border-radius: 32px;
+    color: #0A3871;
+    padding: 0 40px;
+    margin: 3% 0 0 0;
+    box-sizing: border-box;
+    box-shadow: 5px 5px 10px 0 #ced1d4;
+    
+
+}
+
+#nenhuma-mensagem {
+    font-size: 24px;
+    font-weight: bold;
+    color: #343A40;
+    margin: 40px 0;
+}
+
+
+#boneco {
+    width: 100%;
+    height: auto;
+}
+
+#modo-texto-codificado {
+    width: 100%;
+    padding: 30px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#texto_final {
+    text-align: left;
+    background: white;
+    color: #0A3871;
+    font-size: 24px;
+    width: 100%;
+    height: 383px;
+    overflow-y: auto;
+    word-wrap: break-word;
+    hyphens: auto;
+    margin-bottom: 50px;
+    line-height: 1.5;
+}
+
+#caixa-botao-copiar {
+    width:100%;
+    display:flex;
+    height: 87px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+
+}
+
+#copiar {
+    font-size: 18px;
+    padding: 0px;
+    width: 260px;
+    height: 67px;
+    border: 1px solid #0A3871;
+    border-radius: 24px;
+    background: none;
+    color:  #0A3871;
+    box-sizing: content-box;
+    transition: transform 200ms linear, background 1s;
+    cursor: pointer;
+    box-shadow: 5px 5px 10px 0 #b7babd;
+    margin-bottom: 50px;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-stretch: expanded;
+    bottom: 0;
+    width: 100%;
+    padding: 1rem;
+    gap: 1rem;
+    background: #0A3871;
+    color: #E5E5E5;
+ }
+
+ footer p:after {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 1.5rem;
+    margin: -2px 0.5rem 0;
+    background-color: #E5E5E5;
+ }
+ 
+ footer ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+ }
+ 
+ ul li {
+    list-style: none;
+ }
+ 
+ li a {
+    text-decoration: none;
+ }
+ 
+ li a i {
+    color: #E5E5E5;
+    font-size: 1.5rem;
+    transition: all 1s;
+ }
+ 
+ li a i:hover {
+    color: #E5E5E5;
+ }
+ 
+@media screen and (max-width: 414px) {
+
+    body {
+        width: 414px;
+        height: auto;
     }
 
-.mensagem {
-    background: white;
-    background-image: url(/imagens/boneco.png);
-    background-repeat: no-repeat;
-    border: none;
-    border-radius: 24px;
-    color: #0A3871;
-    margin-left: 98px;
-    margin-top: 20px;
-    padding-left: 20px;
-    position: fixed;
+    header {
+
+        width: 100%;
+    }
+
+    .box {
+        position: relative;
+        width: 90%;
+        margin: 0 auto;
+    }
+    
+    main {
+       
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .entrada_de_texto, .botoes, .caixa-botoes-CD,.aviso-restricao,.chaves-decodificacao, .saida-de-texto {
+        width: auto;
+    }
+
+    .entrada_de_texto {
+        position: static;
+        width: 100%;
+        height:auto;
+        display: inline-block;
+    }
+
+    textarea {
+        width: 100%;
+    }
+
+    .chaves-decodificacao {
+        margin-bottom:30px;
+    }
+
+    #criptografar, #descriptografar, #caixa-botoes-CD {
+        width: 100%;
+    }
+
+    .saida-de-texto {
+        width: 100%;
+        position: static;
+        display:block;
+        height: auto;
+        box-sizing: border-box;
+        padding: 0 10px 20px 10px;
+        margin-bottom: 30px;
+        
+
+    }
+
+    #modo-texto-codificado {
+        position: static;
+        display:block;
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+
+    }
+
+    #modo-sem-texto {
+        
+        width: auto;
+        height: auto;
+    }
+
+    #boneco {
+        display:none;
+    }
+
+    footer {
+        clear:right;
+
+    }
+
 }
 
+@media screen and (max-width:912px) and (min-width:415px) {
 
-.mensagem:focus {
-    outline: none;
-} 
+    body {
+        width: 100%;
+    }
 
-.botoes {
-    display: flex;
-    margin-top: 18px;
+    main, .box {
+        width: 90%;
+        margin: 0 auto;
+        
+    }
+
+    .box {
+        width: 80%;
+    }
+
+    .entrada_de_texto {
+        position:static;
+        width: 100%;
+    }
+
+    textarea {
+        width: 100%;
+    }
+
+    .botoes {
+        width: 100%;
+        display:flex;
+        justify-content: center;
+    }
+
+    .saida-de-texto {
+        width: 100%;
+        position: static;
+        display:block;
+        height: auto;
+        box-sizing: border-box;
+        padding: 0 20px 20px 20px;
+        margin-bottom: 30px;
+        
+    }
+
+    #copiar {
+        width: 100%;
+    }
+
+    #boneco {
+        display:none;
+    }
+
+    footer {
+        clear: right;
+    }
 }
 
-.btn-desencriptar {
-    background: #D8DFE8;
-    border: 1px solid #0A3871;
-    border-radius: 24px;
-    color: #0A3871;
-    cursor: pointer;
-    height: 67px;
-    margin-left: 30px;
-    width: 328px;
-}
+@media screen and (max-width:1440px) and (min-width:913px){
+    body, header {
+        width: 100%;
+    }
 
-.btn-encriptar {
-    background: #0A3871;
-    border: 1px solid #0A3871;
-    border-radius: 24px;
-    color: white;
-    cursor: pointer;
-    height: 67px;
-    width: 328px;
-}
+    .box {
+        width: 80%;
+        margin: 0 auto;
+    }
 
-.btn-copiar {
-    border: 1px solid #0A3871;
-    border-radius: 24px;
-    color: #0A3871;
-    cursor: pointer;
-    height: 67px;
-    margin-left: 108px;
-    margin-top: 402px;
-    position: absolute;
-    width: 336px;
-} 
+    main{
+        width: 90%;
+        margin: 0 auto;
+    }
 
-.informacao {
-    color: #495057;
-    height: 24px;
-    font-size: 6px;
-}
+    .botoes {
+        display:flex;
+        width: 100%;
+        justify-content:center;
 
-.logoInfo {
-    height: 24px;
+    }
+
+    #caixa-botoes-CD {
+        width: 45%;
+        margin: 0 20px 0 0;
+
+    }
+
+    #descriptografar, #criptografar {
+        width: 100%;
+    }
 
 }
-
-  

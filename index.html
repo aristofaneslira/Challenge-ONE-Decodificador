@@ -6,41 +6,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
     <title>Encriptador</title>
 </head>
 <body>
     <header>
-        <img class="logoAlura" src="/imagens/logoAlura.png" alt="Logo da Alura">
+        <div class="box">
+            <a href="https://www.alura.com.br/" target="_blank">
+                <img class="logoAlura" src="/imagens/logoAlura.png" alt="Logo da Alura">
+            </a>
+        </div>    
     </header>
 
     <main>
 
-        <section>
-            <textarea class="text-area" cols="41" rows="4" placeholder="digite seu texto"></textarea>
-    
+        <section class="entrada_de_texto">
+            <div class="recebe-texto">
+                <form>
+                    <textarea class="entrada" cols="35" rows="8" placeholder="Digite seu texto"></textarea>
+                </form>
+            </div>
             
-            <div class="informacao"> 
-                <h6>
-                    <img class="logoInfo" src="/imagens/info.png" alt="info"> Apenas letras minúsculas e sem acento.
-                </h6>
-            </div>
-    
-            <div class="botoes">
-                <button class="btn-encriptar" onclick="btnEncriptar()">Criptografar</button>
-                <button class="btn-desencriptar" onclick="btnDesencriptar()">Descriptografar</button>
+            <div class="chaves-decodificacao">
+                <div class="aviso-restricao">
+                    <img id="exclamacao" src="/imagens/info.png" alt="Exclamação">
+                    <p id="texto-aviso">Apenas letras minúsculas e sem acento.</p>
+                </div>
+                <div class="botoes">
+                    <div id="caixa-botoes-CD">
+                        <button id="criptografar">Criptografar</button>
+                    </div>
+                    <div id="caixa-botoes-CD">
+                        <button id="descriptografar">Descriptografar</button>
+                    </div>
+                </div>
             </div>
         </section>
     
-        <section>
-            <textarea class="mensagem" cols="20" rows="10">
-              Nenhuma mensagem encontrada
-              Digite um texto que você deseja criptografar ou descriptografar.
-            </textarea>
-            <button class="btn-copiar" onclick="btnCopiar()">Copiar</button>    
-        </section>
-        
+        <section class="saida-de-texto">
+            <div id="modo-sem-texto">
+                <img id="boneco" src="/imagens/boneco.png" alt="Garoto observando um diamante com uma lupa">
+                <p id="nenhuma-mensagem">Nenhuma mensagem encontrada</p>
+                <p id="digite-um-texto">Digite um texto que você deseja criptografar ou descriptografar.</p>
+            </div>
+            <div id="modo-texto-codificado">
+                <p id="texto_final"></p>
+                <div id="caixa-botao-copiar">
+                    <button id="copiar">Copiar</button>
+                </div>
+            </div>
+        </section>    
     </main>
+
+    <footer>
+        <p>© Desenvolvido por: <strong> Aristófanes Lira</strong></p> 
+        <ul>
+           <li>
+              <a href="https://www.linkedin.com/in/aristofanes-lira-36072714a/" target="_blank">
+                 <i class="fa-brands fa-linkedin"></i>
+              </a>
+           </li>
+           <li>
+              <a href="https://github.com/aristofaneslira" target="_blank">
+                 <i class="fa-brands fa-github"></i>
+              </a>
+           </li>
+        </ul>
+     </footer>
+
     <script src="script.js"></script>
 
 </body>
